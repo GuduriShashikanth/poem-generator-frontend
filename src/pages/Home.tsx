@@ -18,7 +18,7 @@ export default function Home() {
       setLoading(true);
       setLastInputs({ mood, words, type, numLines });
 
-      const response = await axios.post("https://poem-generator-backend-1ehz.onrender.com", {
+      const response = await axios.post("https://poem-generator-backend-1ehz.onrender.com/generate-poem", {
         mood,
         words,
         type,
