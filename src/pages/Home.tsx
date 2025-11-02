@@ -10,19 +10,19 @@ export default function Home() {
     mood: string;
     words: string;
     type: string;
-    numLines?: number;
+    lines?: number;
   } | null>(null);
 
-  const generatePoem = async (mood: string, words: string, type: string, numLines?: number) => {
+  const generatePoem = async (mood: string, words: string, type: string, lines?: number) => {
     try {
       setLoading(true);
-      setLastInputs({ mood, words, type, numLines });
+      setLastInputs({ mood, words, type, lines });
 
       const response = await axios.post("https://poem-generator-backend-1ehz.onrender.com/generate-poem", {
         mood,
         words,
         type,
-        numLines,
+        lines,
       });
 
       setPoem(response.data.poem);
@@ -36,7 +36,7 @@ export default function Home() {
 
   const regeneratePoem = () => {
     if (!lastInputs) return;
-    generatePoem(lastInputs.mood, lastInputs.words, lastInputs.type, lastInputs.numLines);
+    generatePoem(lastInputs.mood, lastInputs.words, lastInputs.type, lastInputs.lines);
   };
 
   return (

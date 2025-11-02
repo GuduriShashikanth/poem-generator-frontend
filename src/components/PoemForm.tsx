@@ -2,18 +2,18 @@
 import { useState } from "react";
 
 interface PoemFormProps {
-  onGenerate: (mood: string, words: string, type: string, numLines?: number) => void;
+  onGenerate: (mood: string, words: string, type: string, lines?: number) => void;
 }
 
 export default function PoemForm({ onGenerate }: PoemFormProps) {
   const [mood, setMood] = useState("happy");
   const [words, setWords] = useState("");
   const [type, setType] = useState("haiku");
-  const [numLines, setNumLines] = useState(3);
+  const [lines, setlines] = useState(3);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onGenerate(mood, words, type, type === "haiku" ? numLines : undefined);
+    onGenerate(mood, words, type, type === "haiku" ? lines : undefined);
   };
 
   return (
@@ -63,7 +63,7 @@ export default function PoemForm({ onGenerate }: PoemFormProps) {
       {type === "haiku" && (
         <div className="mb-4">
           <label className="block font-semibold">Number of Lines:</label>
-          <input type="number" value={numLines} onChange={(e) => setNumLines(Number(e.target.value))} min={3} max={10} className="w-24 p-2 border rounded mt-1" />
+          <input type="number" value={lines} onChange={(e) => setlines(Number(e.target.value))} min={3} max={10} className="w-24 p-2 border rounded mt-1" />
         </div>
       )}
 
