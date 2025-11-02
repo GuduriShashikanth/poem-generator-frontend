@@ -8,7 +8,7 @@ export default function Header() {
         {/* Logo + Site Name */}
         <div className="flex items-center space-x-2">
      
-          <h1 className="text-2xl font-bold">Poetica</h1>
+          <h1 className="text-2xl font-bold">Versera</h1>
         </div>
 
         {/* Navigation */}
